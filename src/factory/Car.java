@@ -1,4 +1,4 @@
-package Factory;
+package factory;
 
 import java.util.List;
 
@@ -15,14 +15,11 @@ public class Car {
         return type;
     }
     
-    public void applyTrades(List<String> traits)
-    {
+    public void applyTrades(List<String> traits) {
         tradeMods = traits;
     }
     
-    
-    public List<String> getTradeMods()
-    {
+    public List<String> getTradeMods() {
         
         return tradeMods;
     }
