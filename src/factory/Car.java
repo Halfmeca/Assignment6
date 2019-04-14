@@ -16,7 +16,7 @@ public class Car {
     }
     
     public void applyTrades(List<String> traits) {
-        tradeMods = traits;
+        tradeMods.addAll(traits);
     }
     
     public List<String> getTradeMods() {

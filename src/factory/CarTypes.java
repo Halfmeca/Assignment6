@@ -1,5 +1,5 @@
 package factory;
 
-public enum CarTypes { 
-    SPORT, HYBRID, TRUCK; 
+public enum CarTypes {
+    SPORT, HYBRID, TRUCK;
 } 
