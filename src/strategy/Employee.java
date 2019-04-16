@@ -28,13 +28,6 @@ public class Employee extends Observer {
         return employeeName;
     }
     
-    public void payDay() {
-        payGiven += strategy.getPayValue();
-    }
-    
-    public int getPayGiven() {
-        return payGiven;
-    }
     
     public EmployeePayStrat getPayStrat() {
         return strategy;
