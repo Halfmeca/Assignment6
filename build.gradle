@@ -1,0 +1,85 @@
+ plugins {
+  id  'com.github.spotbugs' version '1.6.10'
+ }
+
+
+apply plugin: 'application'
+
+application{
+	mainClassName =  'Main'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+	mavenCentral()
+}
+
+
+    sourceSets {
+        main.java.srcDirs = ['src']
+        test.java.srcDirs = ['test']
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Configure Checkstyle
+///////////////////////////////////////////////////////////////////////////
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+checkstyle {
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+  reports {
+    html.enabled = true
+    xml.enabled = false
+  }
+}
+checkstyle {
+    toolVersion = "8.8"
+}
+
+
+spotbugs {
+toolVersion = '3.1.1'
+ignoreFailures = true
+}
+
+ // To generate an HTML report instead of XML
+ tasks.withType(com.github.spotbugs.SpotBugsTask) {
+   reports {
+     xml.enabled = false
+     html.enabled = true
+  }
+}
+
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+
+    compile "junit:junit:4.12"
+
+}
+
+jacoco {
+    toolVersion = "0.8.0"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+test {
+    jacoco {
+        append = false
+        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+        classDumpDir = file("$buildDir/jacoco/classpathdumps")
+    }
+}

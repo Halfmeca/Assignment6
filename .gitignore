@@ -1,3 +1,11 @@
 /bin/
 .classpath
 .project
+*.bin
+*.lock
+*.class
+config/.DS_Store
+.gradle/workspace-id.txt
+.gradle/vcs-1/gc.properties
+.gradle/buildOutputCleanup/cache.properties
+.gradle/5.1.1/gc.properties
