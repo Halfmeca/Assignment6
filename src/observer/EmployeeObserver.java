@@ -21,14 +21,23 @@ public class EmployeeObserver {
     public void attach(Observer observer) {
         employees.add(observer);
     }
+    
     /**
-     * Updates all employess to the new pay strategy.
+     * Updates all employees to the new pay strategy.
      */
     
     public void notifyAllObservers() {
         for (Observer observer : employees) {
             observer.update();
         }
+    }
+    
+    public List<Observer> getAllEmployees() {
+        return employees;
+    }
+    
+    public void clearEmployees() {
+        employees.clear();
     }
     
 }

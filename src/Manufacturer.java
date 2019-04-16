@@ -1,3 +1,4 @@
+import cardecorator.Model;
 import factoryabstract.Car;
 import factoryabstract.CarType;
 import factoryabstract.Factory;
@@ -5,12 +6,12 @@ import factoryabstract.FactoryMaker;
 import factoryabstract.HybridFactory;
 import factoryabstract.SportFactory;
 import factoryabstract.TruckFactory;
-import observer.EmployeeObserver;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import cardecorator.Model;
+import observer.EmployeeObserver;
+import observer.Observer;
+import strategy.Employee;
+import strategy.EmployeePayStrat;
 
 public class Manufacturer {
     
@@ -41,6 +42,7 @@ public class Manufacturer {
         factoryOwners = new EmployeeObserver();
     }
     
+    // Factory Stuff
     /**
      * Creates a new factory for the manufactuerer .
      * 
@@ -69,6 +71,7 @@ public class Manufacturer {
         }
     }
     
+    // Car Stuff
     /**
      * creates a base car from the first factory added.
      * 
@@ -172,13 +175,65 @@ public class Manufacturer {
         
     }
     
+    // Employee Stuff
+    
+    public void addFactoryWorker(String name) {
+        new Employee(factoryEmployees, name);// This adds the employee to the factoryEmployees
+    }
+    
+    public void addFactoryOwner(String name) {
+        new Employee(factoryOwners, name);// This adds the employee to the factoryOwners
+    }
+    
+    public void changeFactoryWorkerPay(EmployeePayStrat newStrat) {
+        factoryEmployees.setPayStrat(newStrat);
+    }
+    
+    public void changeFactoryOwnerPay(EmployeePayStrat newStrat) {
+        factoryOwners.setPayStrat(newStrat);
+    }
+    
+    /**
+     * Adds the employees to the manufactere.
+     * 
+     * @param newFactoryEmployees The employees to be absorbed
+     * @param newFactoryOwners    The employees to be absorbed
+     */
+    
+    public void absorbManufacterEmployees(EmployeeObserver newFactoryEmployees,
+            EmployeeObserver newFactoryOwners) {
+        List<Observer> employees = newFactoryEmployees.getAllEmployees();
+        
+        for (Observer obs : employees) {
+            factoryEmployees.attach(obs);
+        }
+        
+        employees = newFactoryOwners.getAllEmployees();
+        
+        for (Observer obs : employees) {
+            factoryOwners.attach(obs);
+        }
+    }
+    
+    // Getters
+    
+    public EmployeeObserver getFactoryEmployees() {
+        return factoryEmployees;
+    }
+
+    public EmployeeObserver getFactoryOwners() {
+        return factoryOwners;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    
     public List<Factory> getAllFactories() {
         return allFactories;
     }
     
-    public String getName() {
-        return name;
-    }
     
     public List<Factory> getHybridFactories() {
         return hybridFactories;

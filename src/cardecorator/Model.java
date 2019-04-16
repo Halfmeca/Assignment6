@@ -1,9 +1,10 @@
 package cardecorator;
 
-import java.util.List;
-
 import factoryabstract.Car;
 import factoryabstract.CarType;
+import java.util.List;
+
+
 
 public class Model implements Car {
     
@@ -12,10 +13,10 @@ public class Model implements Car {
     protected String creator;
     
     /**
-     * Adds the modle and the creator name for the car.
+     * Adds the model and the creator name for the car.
      * @param newCar The base car class
      * @param model The model name
-     * @param creatorName the name of the manufactuere
+     * @param creatorName the name of the manufacture
      */
     
     public Model(Car newCar, String model, String creatorName) {
