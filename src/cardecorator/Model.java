@@ -53,5 +53,17 @@ public class Model implements Car {
         baseCar.addParts(parts, uniqueParts);
         
     }
+
+    public Car getBaseCar() {
+        return baseCar;
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
     
 }

@@ -10,6 +10,8 @@ import observer.EmployeeObserver;
 import java.util.ArrayList;
 import java.util.List;
 
+import cardecorator.Model;
+
 public class Manufacturer {
     
     private String name;
@@ -36,7 +38,7 @@ public class Manufacturer {
         sportFactories = new ArrayList<>();
         allFactories = new ArrayList<>();
         factoryEmployees = new EmployeeObserver();
-        factoryOwners = new EmployeeObserver(); 
+        factoryOwners = new EmployeeObserver();
     }
     
     /**
@@ -138,6 +140,36 @@ public class Manufacturer {
         }
         
         return null;
+    }
+    
+    /**
+     * Get a car model of specific model and type from the first factory added.
+     * 
+     * @param type  The type of the car
+     * @param model The name of the model
+     * @return The model for the car
+     */
+    public Car getCarModel(CarType type, String model) {
+        
+        Car carModel = new Model(getCar(type), model, name);
+        
+        return carModel;
+        
+    }
+    
+    /**
+     * Creates a car model of a specifed trade type.
+     * 
+     * @param type  The type of wanted
+     * @param trade The trade of the car that is desired
+     * @param model The name of the car model
+     * @return
+     */
+    public Car getCarModel(CarType type, String model, String trade) {
+        
+        Car carModel = new Model(getCar(type, trade), model, name);
+        return carModel;
+        
     }
     
     public List<Factory> getAllFactories() {
