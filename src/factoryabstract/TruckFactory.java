@@ -7,10 +7,11 @@ public class TruckFactory extends Factory {
     
     /**
      * Starts the factory to producing cars.
+     * 
      * @param baseTrade The type of the factory
      */
-
-    public TruckFactory(String baseTrade) {
+    
+    public TruckFactory(String baseTrade, CarType type) {
         trade = new ArrayList<>();
         trade.add(baseTrade);
         unqiueParts = new ArrayList<>();
@@ -18,10 +19,8 @@ public class TruckFactory extends Factory {
         unqiueParts.add("V8 Engine");
         unqiueParts.add("Disel Gas Tank");
         addGeneralParts();
-       
-        
+        this.type = type;
     }
-    
     
     @Override
     public Car createCar() {
@@ -29,7 +28,7 @@ public class TruckFactory extends Factory {
         Car newCar = new HybridCar();
         newCar.setTrade(trade);
         newCar.addParts(generalParts, unqiueParts);
-        
+        newCar.setType(type);
         return newCar;
     }
     

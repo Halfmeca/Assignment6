@@ -1,5 +1,6 @@
 package observer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import strategy.EmployeePayStrat;
@@ -9,6 +10,10 @@ public class EmployeeObserver {
     private List<Observer> employees;
     private EmployeePayStrat strategy;
     
+    public EmployeeObserver() {
+        employees = new ArrayList<>();
+    }
+    
     public EmployeePayStrat getStrategy() {
         return strategy;
     }
@@ -17,7 +22,7 @@ public class EmployeeObserver {
         strategy = newStrategy;
         notifyAllObservers();
     }
-    
+     
     public void attach(Observer observer) {
         employees.add(observer);
     }

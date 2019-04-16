@@ -11,7 +11,7 @@ public class SportFactory extends Factory {
      * @param baseTrade The type of the factory
      */
 
-    public SportFactory(String baseTrade) {
+    public SportFactory(String baseTrade, CarType type) {
         trade = new ArrayList<>();
         trade.add(baseTrade);
         unqiueParts = new ArrayList<>();
@@ -19,6 +19,7 @@ public class SportFactory extends Factory {
         unqiueParts.add("Nitro System");
         unqiueParts.add("Manual Gear Change");
         addGeneralParts();
+        this.type = type;
        
         
     }
@@ -29,7 +30,7 @@ public class SportFactory extends Factory {
         Car newCar = new HybridCar();
         newCar.setTrade(trade);
         newCar.addParts(generalParts, unqiueParts);
-        
+        newCar.setType(type);
         return newCar;
     }
     

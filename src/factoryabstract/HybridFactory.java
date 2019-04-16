@@ -10,7 +10,7 @@ public class HybridFactory extends Factory {
      * @param baseTrade The type of the factory
      */
     
-    public HybridFactory(String baseTrade) {
+    public HybridFactory(String baseTrade, CarType type) {
         trade = new ArrayList<>();
         trade.add(baseTrade);
         unqiueParts = new ArrayList<>();
@@ -18,6 +18,7 @@ public class HybridFactory extends Factory {
         unqiueParts.add("Electric Engine");
         unqiueParts.add("Charging Port");
         addGeneralParts();
+        this.type = type;
        
         
     }
@@ -28,7 +29,7 @@ public class HybridFactory extends Factory {
         Car newCar = new HybridCar();
         newCar.setTrade(trade);
         newCar.addParts(generalParts, unqiueParts);
-        
+        newCar.setType(type);
         return newCar;
     }
     
@@ -37,5 +38,6 @@ public class HybridFactory extends Factory {
         // TODO Auto-generated method stub
         trade.addAll(newTrades);
     }
+    
     
 }

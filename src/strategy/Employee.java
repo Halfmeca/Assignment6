@@ -19,6 +19,7 @@ public class Employee extends Observer {
     public Employee(EmployeeObserver observer, String name) {
         employeeName = name;
         this.observer = observer;
+        Employee test = this;
         observer.attach(this);
         update();
         payGiven = 0;
