@@ -30,6 +30,10 @@ public abstract class Factory {
      * Creates the generalParts list.
      */
     
+    public List<String> getTrade() {
+        return trade;
+    }
+    
     public void addGeneralParts() {
         generalParts = new ArrayList<>();
         generalParts.add("Tires");
