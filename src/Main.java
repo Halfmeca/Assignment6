@@ -15,7 +15,10 @@ import strategy.GoodPaying;
 
 
 public class Main {
-    
+    /**
+     * Why do I need a javadoc comment for main.
+     * @param args THINGS
+     */
     public static void main(String[] args) {
         System.out.println("Creating Honda");
         System.out.println("\n\nAdding new Factories");

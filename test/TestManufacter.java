@@ -1,15 +1,6 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import cardecorator.Model;
 import factoryabstract.Car;
@@ -18,8 +9,16 @@ import factoryabstract.HybridCar;
 import factoryabstract.HybridFactory;
 import factoryabstract.SportCar;
 import factoryabstract.TruckCar;
+import java.util.ArrayList;
+import java.util.List;
 import manufactuerer.Manufacturer;
-import strategy.Employee;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+
 
 public class TestManufacter {
     

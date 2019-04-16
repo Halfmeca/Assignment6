@@ -7,7 +7,7 @@ public class Employee extends Observer {
     
     private EmployeePayStrat strategy;
     private String employeeName;
-    private int payGiven;
+    
     
     /**
      * Adds the employee to the observer class and sets the name.
@@ -21,7 +21,7 @@ public class Employee extends Observer {
         this.observer = observer;
         observer.attach(this);
         update();
-        payGiven = 0;
+       
     }
     
     public String getEmployeeName() {
