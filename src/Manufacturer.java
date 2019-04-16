@@ -3,9 +3,6 @@ import factoryabstract.Car;
 import factoryabstract.CarType;
 import factoryabstract.Factory;
 import factoryabstract.FactoryMaker;
-import factoryabstract.HybridFactory;
-import factoryabstract.SportFactory;
-import factoryabstract.TruckFactory;
 import java.util.ArrayList;
 import java.util.List;
 import observer.EmployeeObserver;
@@ -17,11 +14,11 @@ public class Manufacturer {
     
     private String name;
     private FactoryMaker factoryFactory;
-    // I have these seperated for testing purposes
+    // I have these separated for testing purposes
     private List<Factory> hybridFactories;
     private List<Factory> truckFactories;
     private List<Factory> sportFactories;
-    // This is so I have full acess also for testing purposes
+    // This is so I have full access also for testing purposes
     private List<Factory> allFactories;
     private EmployeeObserver factoryEmployees;
     private EmployeeObserver factoryOwners;
@@ -152,9 +149,9 @@ public class Manufacturer {
      * @param model The name of the model
      * @return The model for the car
      */
-    public Car getCarModel(CarType type, String model) {
+    public Model getCarModel(CarType type, String model) {
         
-        Car carModel = new Model(getCar(type), model, name);
+        Model carModel = new Model(getCar(type), model, name);
         
         return carModel;
         
@@ -168,9 +165,9 @@ public class Manufacturer {
      * @param model The name of the car model
      * @return
      */
-    public Car getCarModel(CarType type, String model, String trade) {
+    public Model getCarModel(CarType type, String model, String trade) {
         
-        Car carModel = new Model(getCar(type, trade), model, name);
+        Model carModel = new Model(getCar(type, trade), model, name);
         return carModel;
         
     }
@@ -202,15 +199,15 @@ public class Manufacturer {
     
     public void absorbManufacterEmployees(EmployeeObserver newFactoryEmployees,
             EmployeeObserver newFactoryOwners) {
-        List<Observer> employees = newFactoryEmployees.getAllEmployees();
+        List<Employee> employees = newFactoryEmployees.getAllEmployees();
         
-        for (Observer obs : employees) {
+        for (Employee obs : employees) {
             factoryEmployees.attach(obs);
         }
         
         employees = newFactoryOwners.getAllEmployees();
         
-        for (Observer obs : employees) {
+        for (Employee obs : employees) {
             factoryOwners.attach(obs);
         }
     }

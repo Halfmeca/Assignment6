@@ -3,11 +3,12 @@ package observer;
 import java.util.ArrayList;
 import java.util.List;
 
+import strategy.Employee;
 import strategy.EmployeePayStrat;
 
 public class EmployeeObserver {
     
-    private List<Observer> employees;
+    private List<Employee> employees;
     private EmployeePayStrat strategy;
     
     public EmployeeObserver() {
@@ -23,7 +24,7 @@ public class EmployeeObserver {
         notifyAllObservers();
     }
      
-    public void attach(Observer observer) {
+    public void attach(Employee observer) {
         employees.add(observer);
     }
     
@@ -37,7 +38,7 @@ public class EmployeeObserver {
         }
     }
     
-    public List<Observer> getAllEmployees() {
+    public List<Employee> getAllEmployees() {
         return employees;
     }
     
