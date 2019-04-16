@@ -1,12 +1,18 @@
-import java.util.List;
 
 import cardecorator.Model;
+
 import factoryabstract.Car;
 import factoryabstract.CarType;
-import observer.Observer;
-import strategy.GoodPaying;
+
+import java.util.List;
+
+import manufactuerer.Manufacturer;
+
 import strategy.BadPaying;
 import strategy.Employee;
+import strategy.GoodPaying;
+
+
 
 public class Main {
     

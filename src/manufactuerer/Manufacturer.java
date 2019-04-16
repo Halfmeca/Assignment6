@@ -1,3 +1,5 @@
+package manufactuerer;
+
 import cardecorator.Model;
 import factoryabstract.Car;
 import factoryabstract.CarType;
